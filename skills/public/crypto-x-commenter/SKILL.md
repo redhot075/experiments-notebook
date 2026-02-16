@@ -1,12 +1,31 @@
 ---
 name: crypto-x-commenter
-description: Analyze a crypto-related X (Twitter) post from a URL and generate English reply options in multiple styles. Use when the user shares an X post about crypto, NFT, DeFi, ICOs, airdrops, token launches, or drophunting and asks for comments/replies, tone variants, or short punchy reactions with a 140-character cap.
+description: Analyze a crypto-related X (Twitter) post from a URL and generate English reply options in multiple styles. Use when the user shares an X post about crypto, NFT, DeFi, ICOs, airdrops, token launches, or drophunting and asks for comments/replies, tone variants, or short punchy reactions with a 140-character cap. Supports explicit mode cues like 'degen mode', 'smart analyst mode', 'skeptical mode', or shorthand like 'degen + link'.
 ---
 
 # Crypto X Commenter
 
 ## Overview
 Extract the post context (`who / what / why`) from an X link, then produce several English comment options in different styles: short slang, medium, and a full but still concise version under 140 characters.
+
+## Mode selection
+
+If the user specifies a mode, adapt tone accordingly:
+
+- **degen mode**
+  - High-energy crypto-native slang
+  - More hype, momentum, conviction
+  - Still avoid fabricated claims
+- **smart analyst mode**
+  - Sharper fundamentals/tokenomics framing
+  - More signal, less meme language
+  - Keep concise and actionable
+- **skeptical mode**
+  - Risk-first framing, more caution
+  - Question assumptions and incentives
+  - Include fraud/overhype awareness without accusations
+
+If no mode is specified, use a balanced crypto-native tone.
 
 ## Workflow
 
@@ -30,6 +49,8 @@ Extract the post context (`who / what / why`) from an X link, then produce sever
 
 ## Output format
 Return exactly this structure:
+
+- **Mode:** degen | smart analyst | skeptical | balanced
 
 - **Who:** ...
 - **What:** ...
