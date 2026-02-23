@@ -12,8 +12,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Daily note
         run: |
-          echo "## $(date '+%Y-%m-%d')\nNotes and sketches." >> notes.md
+          echo "## $(date '+%Y-%m-%d')" >> notes.md
+          echo "Notes and sketches." >> notes.md
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Daily update $(date '+%Y-%m-%d')"
           file_pattern: notes.md
+          commit_user_name: "redhot075"
+          commit_user_email: "code@redhot075.com"
+          branch: main
